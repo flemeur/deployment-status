@@ -20,7 +20,7 @@ async function run() {
     const description = core.getInput("description", { required: false }) || "";
     const deploymentId = core.getInput("deployment_id");
     const environmentUrl = core.getInput("environment_url", { required: false }) || "";
-    const state = core.getInput("state") as DeploymentState;
+    const state = core.getInput("state").toLowerCase() as DeploymentState;
 
     const client = new github.GitHub(token, { previews: ["flash", "ant-man"] });
 
