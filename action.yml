@@ -1,6 +1,9 @@
-name: "Deployment Action"
+name: "Deployment Status"
 description: "Creates a GitHub Deployment status update"
 author: "chrnorm"
+branding:
+  icon: arrow-up
+  color: gray-dark
 inputs:
   state:
     description: "State for the deployment"
@@ -8,8 +11,11 @@ inputs:
   token:
     description: "Github repository token"
     required: true
-  target-url:
+  target_url:
     description: "Target url location"
+    required: false
+  environment_url:
+    description: "Sets the URL for accessing your environment"
     required: false
   description:
     description: "Descriptive message about the deployment"
@@ -19,4 +25,4 @@ inputs:
     required: true
 runs:
   using: "node12"
-  main: "lib/main.js"
+  main: "dist/index.js"
